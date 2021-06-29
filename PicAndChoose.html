@@ -15,14 +15,45 @@
     <div class ="grid3" >
         <div class ="grid3-left" > </div>
         <div class ="grid3-right" > </div>
-        <img class ="grid3-center" id="mainImg" src="./src/PicAndChoose/setA/1_bread1.jpg" >
+        <img class ="grid3-center" id="mainImg" src="./src/PicAndChoose/img/init.png" >
     </div>
-    <!--<img class="choiceClass" id="choice1" onClick="evalClick(this.id)" src="./src/PicAndChoose/setA/1.png">-->
-    <img class="choices" id="choice1"  src="./src/PicAndChoose/setA/choices/1.png">
-    <img class="choices" id="choice2"  src="./src/PicAndChoose/setA/choices/2.png">
-    <img class="choices" id="choice3"  src="./src/PicAndChoose/setA/choices/3.png">
-    <img class="choices" id="choice4"  src="./src/PicAndChoose/setA/choices/4.png">
-
+    <img class="choices" id="choice1" onClick="evalClick(this.id)" 
+         src="./src/PicAndChoose/setA/choices/1.png">
+    <img class="choices" id="choice2" onClick="evalClick(this.id)" 
+         src="./src/PicAndChoose/setA/choices/2.png">
+    <!--<img class="choices" id="choice3"  src="./src/PicAndChoose/setA/choices/3.png">-->
+    <!--<img class="choices" id="choice4"  src="./src/PicAndChoose/setA/choices/4.png">-->
     <script src="./src/PicAndChoose/functions.js"></script> 
+    <script>
+    choices = [
+            document.getElementById('choice1'),
+            document.getElementById('choice2'),
+            //document.getElementById('choice3'),
+            //document.getElementById('choice4'),
+    ]; //choices
+
+    choices[1-1].resetY = "1vh";
+    choices[1-1].resetX = "1vw";
+    choices[2-1].resetY = "1vh";
+    choices[2-1].resetX = "84vw";
+
+    //choices[3-1].resetX = "8vh";
+    //choices[3-1].resetY = "1vw";
+    //choices[4-1].resetX = "84vh";
+    //choices[4-1].resetY = "84vw";
+
+    promptSet = [
+        new SmartString("10_cookie5.jpg",1),
+        new SmartString("1_bread1.jpg",2),
+        new SmartString("2_cookie1.jpg",1),
+        new SmartString("3_bread2.jpg",1),
+        new SmartString("4_cookie2.jpg",1),
+        new SmartString("5_cookie3.jpg",1),
+        new SmartString("6_bread3.jpg",1),
+        new SmartString("7_bread4.jpg",1),
+        new SmartString("8_cookie4.jpg",1),
+        new SmartString("9_bread5.jpg",1),
+    new SmartString("",0)];
+    </script>
 </body> 
 </html> 
