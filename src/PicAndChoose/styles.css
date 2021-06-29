@@ -15,7 +15,13 @@ body {
     overflow-x: hidden;
     z-index: 0;
 } /*fullPage*/
-/*}}}class*/
+
+.selectBox {
+    position: fixed;
+    overflow-x: hidden;
+    top: 0vh;
+    left: 50vw;
+} /*.selectBox*/
 
 .grid3{
     display:grid;
@@ -37,9 +43,8 @@ body {
     grid-row: 1;
 }/*grid3-right*/
 
-
 .grid3-center{
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
     grid-column: 2;
     grid-row: 1;
     align-self: center;
@@ -49,38 +54,38 @@ body {
 
 .choices {
     position: fixed;
-    /*top: 0vh;*/
-    /*left: 0vw;*/
     height: 15vh;
     width: 15vw;
     margin: auto;
     overflow-x: hidden;
     overflow-y: hidden;
     cursor: move;
-    transition:  50ms;
+    transition:  250ms;
     z-index:2;
 } /*choicePage*/
 .chosen{
     top: 43vh;
     left: 43vw;
 } /*chosen*/
+.guide{
+    font-family: sans-serif;
+    color: black;
+    opacity: 0.6;
+    position: fixed;
+    font-size: 1.8em;
+}
+/*}}}class*/
+
 /*{{{id selector*/
-#choice1 {
-    top: 1vh;
-    left: 1vw;
-} /*#choice1*/
-#choice2 {
-    top: 1vh;
-    left: 84vw;
-} /*#choice2*/
-#choice3 {
-    top: 84vh;
-    left: 1vw;
-} /*#choice3*/
-#choice4 {
-    top: 84vh;
-    left: 84vw;
-} /*#choice4*/
+#choice1 { top: 1vh;     left:  1vw; }
+#choice2 { top: 1vh;     left:  84vw;}
+#choice3 { top: 84vh;    left:  1vw; }
+#choice4 { top: 84vh;    left:  84vw;}
+#guide1  { top: 16vh;    left:  1vw; }
+#guide2  { top: 16vh;    right: 1vw; }
+#guide3  { bottom: 16vh; left:  1vw; }
+#guide4  { bottom: 16vh; right: 1vw; }
+
 #mainImg {
     width: 70%;
     height: 80%;

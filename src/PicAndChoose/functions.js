@@ -15,7 +15,7 @@ let activeNum=1;
 
 
 //{{{class declarations
-class SmartString  {
+class PromptString  {
     constructor(text,ans){
         this.txt = text;
         this.ans = ans;
@@ -66,10 +66,29 @@ setTimeout (function() { //set delay before calculating drawable parameters
     scaleX = bgX.clientWidth/bgX.naturalWidth;
     scaleY = bgX.clientHeight/bgX.naturalHeight;
 
+    choices = [
+            document.getElementById('choice1'),
+            document.getElementById('choice2'),
+            document.getElementById('choice3'),
+            document.getElementById('choice4')
+    ]; //choices
+
+    choices[1-1].resetY = "1vh";
+    choices[1-1].resetX = "1vw";
+    choices[2-1].resetY = "1vh";
+    choices[2-1].resetX = "84vw";
+
+    choices[3-1].resetY = "84vh";
+    choices[3-1].resetX = "1vw";
+    choices[4-1].resetY = "84vh";
+    choices[4-1].resetX = "84vw";
+
+
     pickSound = new sound(sourceDir+"wav/pick.mp3");
     tingSound = new sound(sourceDir+"wav/ting.mp3");
     errSound = new sound(sourceDir+"wav/err.mp3");
 
+    document.getElementById("dummy").focus(); //dummy select element that grabs the focus of the iframe
 }, 10);//setTimeOut (function()
 };//document.getElementById ... wait for element before loading
 } //function initWin()
@@ -111,7 +130,7 @@ function evalChosen(numChosen) {
         errSound.start();
         setTimeout (function () {
             resetPosition(); 
-        }, 300); //setTimeOut
+        }, 400); //setTimeOut
     } // else [of if numChosen == promptSet]
 
 } //function evalChosen(numChosen)

@@ -9,9 +9,10 @@
 </head>
 
 <body id="myBody">
-    <img class="fullPage" id="backgroundX" src="./src/PicAndChoose/img/BG0.jpg">
+    <img class="fullPage" id="backgroundX" src="./src/PicAndChoose/img/BG0.png">
     <div id="srcDir" style="display:none">./src/PicAndChoose/</div>
     <div id="assetDir" style="display:none">./src/PicAndChoose/setA/</div>
+    <select class="selectBox" id="dummy"><option></option></select>
     <div class ="grid3" >
         <div class ="grid3-left" > </div>
         <div class ="grid3-right" > </div>
@@ -21,39 +22,30 @@
          src="./src/PicAndChoose/setA/choices/1.png">
     <img class="choices" id="choice2" onClick="evalClick(this.id)" 
          src="./src/PicAndChoose/setA/choices/2.png">
-    <!--<img class="choices" id="choice3"  src="./src/PicAndChoose/setA/choices/3.png">-->
-    <!--<img class="choices" id="choice4"  src="./src/PicAndChoose/setA/choices/4.png">-->
+    <img class="choices" id="choice3" onClick="evalClick(this.id)" 
+         src="./src/PicAndChoose/setA/choices/3.png">
+    <img class="choices" id="choice4" onClick="evalClick(this.id)" 
+         src="./src/PicAndChoose/setA/choices/4.png">
+
+    <span class="guide" id="guide1">1</span>
+    <span class="guide" id="guide2">2</span>
+    <span class="guide" id="guide3">3</span>
+    <span class="guide" id="guide4">4</span>
+
     <script src="./src/PicAndChoose/functions.js"></script> 
     <script>
-    choices = [
-            document.getElementById('choice1'),
-            document.getElementById('choice2'),
-            //document.getElementById('choice3'),
-            //document.getElementById('choice4'),
-    ]; //choices
-
-    choices[1-1].resetY = "1vh";
-    choices[1-1].resetX = "1vw";
-    choices[2-1].resetY = "1vh";
-    choices[2-1].resetX = "84vw";
-
-    //choices[3-1].resetX = "8vh";
-    //choices[3-1].resetY = "1vw";
-    //choices[4-1].resetX = "84vh";
-    //choices[4-1].resetY = "84vw";
-
     promptSet = [
-        new SmartString("10_cookie5.jpg",1),
-        new SmartString("1_bread1.jpg",2),
-        new SmartString("2_cookie1.jpg",1),
-        new SmartString("3_bread2.jpg",1),
-        new SmartString("4_cookie2.jpg",1),
-        new SmartString("5_cookie3.jpg",1),
-        new SmartString("6_bread3.jpg",1),
-        new SmartString("7_bread4.jpg",1),
-        new SmartString("8_cookie4.jpg",1),
-        new SmartString("9_bread5.jpg",1),
-    new SmartString("",0)];
+        new PromptString("10_cookie5.jpg",1),
+        new PromptString("1_bread1.jpg",2),
+        new PromptString("2_cookie1.jpg",1),
+        new PromptString("3_bread2.jpg",1),
+        new PromptString("4_cookie2.jpg",1),
+        new PromptString("5_cookie3.jpg",1),
+        new PromptString("6_bread3.jpg",1),
+        new PromptString("7_bread4.jpg",1),
+        new PromptString("8_cookie4.jpg",1),
+        new PromptString("9_bread5.jpg",1),
+    new PromptString("",0)];
     </script>
 </body> 
 </html> 

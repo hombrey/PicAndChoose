@@ -6,9 +6,9 @@ echo "    ansSet = [" >> array.txt
 input="./list.txt"
 while IFS= read -r line
 do
-    echo "        new SmartString(\"$line\",1)," >> array.txt
+    echo "        new PromptString(\"$line\",1)," >> array.txt
 done < "$input"
-    echo "    new SmartString(\"\",1)];" >> array.txt
+    echo "    new PromptSmartString(\"\",1)];" >> array.txt
 rm list.txt
 
 
