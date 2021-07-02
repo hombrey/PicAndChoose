@@ -1,17 +1,15 @@
 #!/bin/bash
-ls $1 > list.txt
+ls $1 > /tmp/list.txt
 
 echo "promptSet = [" > fillarray.js
-input="./list.txt"
+input="/tmp/list.txt"
 while IFS= read -r line
 do
     EVAL=`echo " \"$line\" "`
-    if [[ $EVAL == *"jpg"* || $EVAL == *"png"* ]]; then
+    if [[ $EVAL == *"jpg"* || $EVAL == *"png"* || $EVAL == *"gif"* ]]; then
         echo "        new PromptString(\"$line\",1)," >> fillarray.js
     fi
 done < "$input"
 
-rm list.txt
+rm /tmp/list.txt
 echo "new PromptString(\"\",0)];" >> fillarray.js
-
-#echo "        new PromptString(\"$line\",1)," >> array.txt

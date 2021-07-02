@@ -13,7 +13,6 @@ let errSound;
 let activeNum=1;
 //}}}variable declarations
 
-
 //{{{class declarations
 class PromptString  {
     constructor(text,ans){
