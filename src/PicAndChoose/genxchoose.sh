@@ -1,24 +1,33 @@
 #!/bin/bash
-ls $1 > /tmp/list.txt
+ls > /tmp/list.txt
 input="/tmp/list.txt"
+
+#default source directory if not specified in the command line
+SOURCEDIR=`echo $1`
+if [[ $SOURCEDIR == "" ]]; then 
+    SOURCEDIR="../src/" 
+fi
+
+#truncate last character (i.e. "/")
+SOURCEDIR=`echo "${SOURCEDIR%?}"`
 
 echo "<html lang=\"en\">" > x_choose.html
 echo "<head>" >> x_choose.html
 echo "    <meta charset=\"UTF-8\">" >> x_choose.html
 echo "    <title></title> " >> x_choose.html
 echo "    <meta name=\"author\" content=\"Hombrey\">" >> x_choose.html
-echo "    <link rel=\"stylesheet\" href=\"../src/PicAndChoose/styles.css\">" >> x_choose.html
+echo "    <link rel=\"stylesheet\" href=\"$SOURCEDIR/PicAndChoose/styles.css\">" >> x_choose.html
 echo "</head>" >> x_choose.html
 echo "" >> x_choose.html
 echo "<body id=\"myBody\">" >> x_choose.html
-echo "    <img class=\"fullPage\" id=\"backgroundX\" src=\"../src/PicAndChoose/img/BG0.png\">" >> x_choose.html
-echo "    <div id=\"srcDir\" style=\"display:none\">../src/PicAndChoose/</div>" >> x_choose.html
+echo "    <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/PicAndChoose/img/BG0.png\">" >> x_choose.html
+echo "    <div id=\"srcDir\" style=\"display:none\">$SOURCEDIR/PicAndChoose/</div>" >> x_choose.html
 echo "    <div id=\"assetDir\" style=\"display:none\">./</div>" >> x_choose.html
 echo "    <select class=\"selectBox\" id=\"dummy\"><option></option></select>" >> x_choose.html
 echo "    <div class =\"grid3\" >" >> x_choose.html
 echo "        <div class =\"grid3-left\" > </div>" >> x_choose.html
 echo "        <div class =\"grid3-right\" > </div>" >> x_choose.html
-echo "        <img class =\"grid3-center\" id=\"mainImg\" src=\"../src/PicAndChoose/img/init.png\" >" >> x_choose.html
+echo "        <img class =\"grid3-center\" id=\"mainImg\" src=\"$SOURCEDIR/PicAndChoose/img/init.png\" >" >> x_choose.html
 echo "    </div>" >> x_choose.html
 echo "    <img class=\"choices\" id=\"choice1\" onClick=\"evalClick(this.id)\" " >> x_choose.html
 echo "         src=\"./choices/1.png\">" >> x_choose.html
@@ -34,7 +43,7 @@ echo "    <span class=\"guide\" id=\"guide2\">2</span>" >> x_choose.html
 echo "    <span class=\"guide\" id=\"guide3\">3</span>" >> x_choose.html
 echo "    <span class=\"guide\" id=\"guide4\">4</span>" >> x_choose.html
 echo "" >> x_choose.html
-echo "    <script src=\"../src/PicAndChoose/functions.js\"></script> " >> x_choose.html
+echo "    <script src=\"$SOURCEDIR/PicAndChoose/functions.js\"></script> " >> x_choose.html
 echo "    <script> " >> x_choose.html
 echo "      promptSet = [" >> x_choose.html 
 while IFS= read -r line
