@@ -4,7 +4,7 @@ let bgX;
 let scaleX, scaleY;
 let promptSet;
 let choices;
-let imgIndex=0;
+let imgIndex=-1;
 let assetDir, sourceDir;
 let mainImg;
 let pickSound;
