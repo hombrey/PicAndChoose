@@ -10,7 +10,9 @@ let mainImg;
 let pickSound;
 let tingSound;
 let errSound;
+let cardSound;
 let activeNum=1;
+let angleImg=0;
 //}}}variable declarations
 
 //{{{class declarations
@@ -34,6 +36,8 @@ function evalKeyDown(evnt) {
         case 50 : evalChosen(2); break; //key: 2
         case 51 : evalChosen(3); break; //key: 3
         case 52 : evalChosen(4); break; //key: 4
+        case 39 : rotatePiece(90);break; //key: right
+        case 37 : rotatePiece(-90);break; //key: left
         case 38 : viewNextImg(-1); 
                   break; //key: <up>
         case 40 : viewNextImg(1); 
@@ -86,6 +90,7 @@ setTimeout (function() { //set delay before calculating drawable parameters
     pickSound = new sound(sourceDir+"wav/pick.mp3");
     tingSound = new sound(sourceDir+"wav/ting.mp3");
     errSound = new sound(sourceDir+"wav/err.mp3");
+    cardSound = new sound(sourceDir+"wav/card.mp3");
 
     document.getElementById("dummy").focus(); //dummy select element that grabs the focus of the iframe
 }, 10);//setTimeOut (function()
@@ -103,12 +108,17 @@ function viewNextImg(inc) {
     else if (promptSet[imgIndex].txt=="") imgIndex = 0;
 
     let imgSrc =(assetDir+promptSet[imgIndex].txt);
-    //console.log("index: "+imgIndex);
-    //console.log("image: "+imgSrc);
 
+    angleImg = 0;
+    mainImg.style.transform="rotate( 0deg)";
     pickSound.start();
     mainImg.src = imgSrc;
 } //function vewNextImg(inc)
+function rotatePiece(rotation) {
+    cardSound.start();
+    angleImg+=rotation;
+    mainImg.style.transform = "rotate("+angleImg+"deg)";
+} //function rotatePiece()
 function evalClick(clicked_id) {
     let extractIdNum = (clicked_id.replace("choice",""));
     let clickedNum = parseInt(extractIdNum);
