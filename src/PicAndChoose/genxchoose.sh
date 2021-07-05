@@ -2,14 +2,8 @@
 ls > /tmp/list.txt
 input="/tmp/list.txt"
 
-#default source directory if not specified in the command line
-SOURCEDIR=`echo $1`
-if [[ $SOURCEDIR == "" ]]; then 
-    SOURCEDIR="../src/PicAndChoose/" 
-fi
-
-#truncate last character (i.e. "/")
-SOURCEDIR=`echo "${SOURCEDIR%?}"`
+# extract the source directory from the command used to call this script
+SOURCEDIR=`echo "${0%/*}"`
 
 echo "<html lang=\"en\">" > x_choose.html
 echo "<head>" >> x_choose.html
