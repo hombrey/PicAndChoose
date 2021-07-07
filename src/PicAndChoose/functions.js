@@ -12,6 +12,7 @@ let tingSound;
 let errSound;
 let cardSound;
 let activeNum=1;
+let isPicFullScreen=false;
 let angleImg=0;
 //}}}variable declarations
 
@@ -42,6 +43,8 @@ function evalKeyDown(evnt) {
                   break; //key: <up>
         case 40 : viewNextImg(1); 
                   break; //key: <down>
+        case 70 :  if(event.ctrlKey) togglePicFullScreen(evnt); //if (event.ctrlKey)
+                   break; // 'f'
         case  8 : parent.focus(); break; //key: Escape --This gives control back to reveal.js when in an iframe 
         default : return;
     } //switch (keyPressed)
@@ -119,6 +122,29 @@ function rotatePiece(rotation) {
     angleImg+=rotation;
     mainImg.style.transform = "rotate("+angleImg+"deg)";
 } //function rotatePiece()
+function togglePicFullScreen(evnt) {
+    evnt.preventDefault();
+    if (!isPicFullScreen){
+        console.log("to full screen");
+        if (mainImg.requestFullscreen) { mainImg.requestFullscreen(); }
+        else if (mainImg.webkitRequestFullScreen) { mainImg.webkitRequestFullScreen(); }
+        isPicFullScreen = true;
+    }//if (!isFullScreen)
+    else {
+        console.log("exit full screen");
+        //if (mainImg.exitFullscreen) { mainImg.exitFullscreen(); } 
+        //else if (mainImg.webkitExitFullscreen) { mainImg.webkitExitFullscreen(); }
+            if (document.cancelFullScreen) {
+                document.cancelFullScreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            } //if document.cancelFullScreen
+        isPicFullScreen = false;
+    } //else of isfullScreen
+                   
+} //function toggleFullScreen()
 function evalClick(clicked_id) {
     let extractIdNum = (clicked_id.replace("choice",""));
     let clickedNum = parseInt(extractIdNum);
