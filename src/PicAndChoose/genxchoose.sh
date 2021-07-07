@@ -17,7 +17,7 @@ echo "<body id=\"myBody\">" >> x_choose.html
 echo "    <img class=\"fullPage\" id=\"backgroundX\" src=\"$SOURCEDIR/img/BG0.png\">" >> x_choose.html
 echo "    <div id=\"srcDir\" style=\"display:none\">$SOURCEDIR/</div>" >> x_choose.html
 echo "    <div id=\"assetDir\" style=\"display:none\">./</div>" >> x_choose.html
-echo "    <select class=\"selectBox\" id=\"dummy\"><option></option></select>" >> x_choose.html
+echo "    <select class=\"selectBox\" id=\"dummy\"><option>PicAndChoose</option></select>" >> x_choose.html
 echo "    <div class =\"grid3\" >" >> x_choose.html
 echo "        <div class =\"grid3-left\" > </div>" >> x_choose.html
 echo "        <div class =\"grid3-right\" > </div>" >> x_choose.html

@@ -42,7 +42,7 @@ function evalKeyDown(evnt) {
                   break; //key: <up>
         case 40 : viewNextImg(1); 
                   break; //key: <down>
-        case 27 : parent.focus(); break; //key: Escape --This gives control back to reveal.js when in an iframe 
+        case  8 : parent.focus(); break; //key: Escape --This gives control back to reveal.js when in an iframe 
         default : return;
     } //switch (keyPressed)
 } //evalKey(event)
