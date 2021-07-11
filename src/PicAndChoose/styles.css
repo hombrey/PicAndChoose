@@ -81,10 +81,10 @@ body {
 #choice2 { top: 1vh;     left:  84vw;}
 #choice3 { top: 84vh;    left:  1vw; }
 #choice4 { top: 84vh;    left:  84vw;}
-#guide1  { top: 16vh;    left:  1vw; }
-#guide2  { top: 16vh;    right: 1vw; }
-#guide3  { bottom: 16vh; left:  1vw; }
-#guide4  { bottom: 16vh; right: 1vw; }
+#guide1  { top: 16vh;    left:  1vw; display: none;}
+#guide2  { top: 16vh;    right: 1vw; display: none;}
+#guide3  { bottom: 16vh; left:  1vw; display: none;}
+#guide4  { bottom: 16vh; right: 1vw; display: none;}
 
 #mainImg {
     width: 70%;

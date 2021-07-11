@@ -1,5 +1,5 @@
 #!/bin/bash
-ls > /tmp/list.txt
+ls |sort -n > /tmp/list.txt
 input="/tmp/list.txt"
 
 # extract the source directory from the command used to call this script
@@ -54,3 +54,4 @@ echo "</body> " >> x_choose.html
 echo "</html> " >> x_choose.html
 
 rm /tmp/list.txt
+cp -nr $SOURCEDIR/choices . # n option should prevent from overwriting
