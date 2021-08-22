@@ -54,9 +54,19 @@ function evalKeyDown(evnt) {
 //{{{initializations
 
 //make sure elements are loaded before proceeding
-function initWin() {
-document.getElementById('backgroundX').onload = function () { //wait for element before loading
-setTimeout (function() { //set delay before calculating drawable parameters
+const checkElement = async selector => {
+  while ( document.querySelector(selector) === null) {
+    await new Promise( resolve =>  requestAnimationFrame(resolve) )
+  } //while ( document.querySelector(selector) === null)
+  return document.querySelector(selector); 
+}; //const checkElement = async selector
+
+//make sure elements are loaded before proceeding
+async function initWin() {
+//document.getElementById('backgroundX').onload = async function () { //wait for element before loading
+    await delay (80); 
+    //check to see if element is loaded
+    checkElement('backgroundX').then((selector) => { console.log(selector); });
     //Get a reference to the canvas
     bgX = document.getElementById('backgroundX');
 
@@ -71,6 +81,8 @@ setTimeout (function() { //set delay before calculating drawable parameters
 
     scaleX = bgX.clientWidth/bgX.naturalWidth;
     scaleY = bgX.clientHeight/bgX.naturalHeight;
+
+    await delay (10); 
 
     choices = [
             document.getElementById('choice1'),
@@ -96,8 +108,7 @@ setTimeout (function() { //set delay before calculating drawable parameters
     cardSound = new sound(sourceDir+"wav/card.mp3");
 
     document.getElementById("dummy").focus(); //dummy select element that grabs the focus of the iframe
-}, 50);//setTimeOut (function()
-};//document.getElementById ... wait for element before loading
+//};//document.getElementById ... wait for element before loading
 } //function initWin()
 
 //}}}initializations
@@ -204,5 +215,14 @@ function insertCss( code ) {
 
     document.getElementsByTagName("head")[0].appendChild( style );
 } //function insertCss( code)
+
+function delay(n) {  
+        n = n || 2000;
+        return new Promise(done => {
+                setTimeout(() => {
+                        done();
+                        }, n);
+            });
+}//function delay()
 
 //}}}helper functions
