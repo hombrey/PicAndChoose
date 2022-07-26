@@ -33,6 +33,9 @@ function evalKeyDown(evnt) {
     let keyPressed = evnt.keyCode;
     //console.log ("keyDn: ",keyPressed);
     switch (keyPressed) {
+       case 87  : if(!event.shiftKey) parent.postMessage("FocusSeq","*");
+                  else parent.postMessage("FocusTool","*"); 
+                  break; //key: w
         case 49 : evalChosen(1); break; //key: 1
         case 50 : evalChosen(2); break; //key: 2
         case 51 : evalChosen(3); break; //key: 3
@@ -49,6 +52,19 @@ function evalKeyDown(evnt) {
         default : return;
     } //switch (keyPressed)
 } //evalKey(event)
+
+window.addEventListener('message', evalMessage);
+function evalMessage (evnt) {
+    // Get the sent data
+    var data = evnt.data;
+    //console.log ("message received");
+
+    if (data == "FocusIframe") {
+        //console.log("focusDummy");
+        document.getElementById('dummy').focus();
+    }
+} //function evalMessage(event)
+
 //}}}event listeners
 
 //{{{initializations
